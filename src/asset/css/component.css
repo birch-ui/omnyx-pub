@@ -1,0 +1,375 @@
+/* 버튼 스타일 */
+button {
+    border-color: var(--text-500-color);
+    border: 0.1rem solid;
+    background: #fff;
+    font-weight: 300;
+    width: 100%;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .retail .btn-fill,
+  .wholesale .btn-fill {
+    background: var(--primary-color);
+    border: none;
+    color: #fff;
+    border-radius: var(--border-radius);
+  }
+  
+  .wholesale .btn-fill {
+    background: var(--secondary-color);
+  }
+  
+  .retail .btn-line,
+  .wholesale .btn-line {
+    background: #fff;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    border: 0.1rem solid;
+    width: 100%;
+  }
+  
+  .wholesale .btn-line {
+    color: var(--secondary-color);
+  }
+  
+  .btn-disable {
+    color: var(--disabled-text-color);
+    background: var(--disabled-bg-color);
+    border: none;
+  }
+  
+  .btn-dark {
+    color: #fff;
+    background: var(--text-600-color);
+    border: none;
+  }
+  
+  .btn-large {
+    height: 4.6rem;
+    font-size: 1.6rem;
+  }
+  
+  .btn-medium {
+    height: 3.2rem;
+    font-size: 1.6rem;
+  }
+  
+  .btn-small {
+    height: 2.6rem;
+    font-size: 1.4rem;
+  }
+  
+  .btn-xsmall {
+    height: 2.0rem;
+    font-size: 1.1rem;
+  }
+  .btn-group {
+    padding: 2rem 0;
+  }
+  
+
+
+/* App Bar Styles */
+.appbar {
+    height: 4.6rem;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    text-align: center;
+    position: fixed;
+    z-index: 10;
+}
+
+.retail .appbar.main {
+    background-color: var(--primary-color);
+}
+
+.wholesale .appbar {
+    background-color: var(--secondary-color);
+}
+
+.appbar .fl, .appbar .fr {
+    margin-top: 0.8rem;
+}
+
+.appbar .fl {
+    float: left;
+}
+
+.appbar .fr {
+    float: right;
+}
+
+.appbar .center {
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.appbar button {
+    background-size: contain;
+    border: 0;
+    overflow: hidden;
+    height: 3.2rem;
+    width: 3.2rem;
+    text-indent: -100rem;
+}
+
+.appbar button.appbar-logo {
+    background: url('../images/appbar-logo.svg') no-repeat center;
+    width: 8rem;
+}
+
+.appbar-menu {
+    background: url('../images/appbar-menu.svg') no-repeat center;
+}
+
+.appbar-search {
+    background: url('../images/appbar-search.svg') no-repeat center;
+}
+
+.appbar-alarm {
+    background: url('../images/appbar-alarm.svg') no-repeat center;
+}
+
+.appbar-cart {
+    background: url('../images/appbar-cart.svg') no-repeat center;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #000;
+}
+.appbar-pre {
+    background: url('../images/appbar-pre.svg') no-repeat center;
+}
+.appbar .title {
+    color:#fff;
+    font-weight: 400;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 3rem;
+}
+
+
+.badge {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background-color: #fff;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Form Styles */
+.form-group {
+    margin: 1rem 0;
+    position: relative;
+}
+.form-group label {
+    padding: 1rem 0 0.5rem;
+    display: flex;
+    font-size: 1.4rem;;
+}
+.input-container {
+    display: flex;
+    border: 0.1rem solid  var( --text-300-color);
+    border-radius: .6rem;
+    padding: 1rem;
+}
+.input-container .btn-small{
+    min-width: 6rem;
+    width: auto;
+}
+
+.input-container.focused {
+    border-color: var(--primary-color);
+  }
+
+  .input-container.retail {
+    border-color: var(--primary-color); /* 소매 배경색 */
+  }
+  
+  .input-container.wholesale {
+    border-color: var(--secondary-color); /* 도매 배경색 */
+  }
+  .wholesale .input-container.focused {
+    border-color: var(--secondary-color) !important; /* 도매 배경색 */
+  }
+
+
+.input-container label {
+    display: block;
+}
+
+/* Radio Styles */
+
+input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type='radio']:checked {
+    background-color: var(--primary-color);
+    border: 0.5rem solid #fff;
+    box-shadow: 0 0 0 1px var(--primary-color);
+}
+.btn-clear, .btn-eye, .btn-eye-off {
+    background: url('../images/btn-clear.svg') no-repeat center;
+    background-size: contain;
+    border: 0;
+    overflow: hidden;
+    height: 2.4rem;
+    width: 2.9rem;
+    text-indent: -100rem;
+    margin-left:0.5rem
+}
+.btn-eye {
+    background: url('../images/btn-eye.svg') no-repeat center;
+    right:1rem;
+}
+.btn-eye-off {
+    background: url('../images/btn-eye-off.svg') no-repeat center;
+    right:1rem;
+}
+
+.wholesale input[type='radio']:checked {
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 0 1px var(--secondary-color);
+}
+
+/* Radio Group Styles */
+.radio-group {
+    display: flex;
+    padding: 1rem 0;
+}
+
+.radio-group label, .check-group label {
+    display: flex;
+    padding-left: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.radio-group div {
+    flex: 1;
+    display: flex;
+}
+
+/* Checkbox Styles */
+.check-group {
+    padding: 0.6rem 0;
+}
+.check-group, .check-item {
+    display: flex;
+}
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 4px;
+    background-color: #fff;
+    position: relative;
+    cursor: pointer;
+    accent-color: transparent;
+  }
+
+input[type="checkbox"]:checked:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #fff;
+    -webkit-mask-image: url('../images/ico-checked.svg');
+    mask-image: url('../images/ico-checked.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    mask-repeat: no-repeat;
+}
+
+
+
+/* 10.modal */
+.modal-container {
+    flex: 1;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .modal {
+    background: #fff;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    max-width: 40rem;
+    width: calc(100% - 8rem);
+    position: relative;
+  }
+  
+  
+  .btn-close-modal{
+    background: url('../images/btn-close-modal.svg') no-repeat center;
+    background-size: contain;
+    border: 0;
+    overflow: hidden;
+    height: 2.4rem;
+    width: 2.4rem;
+    text-indent: -100rem;
+    position: absolute;
+    right:2rem
+  }
+   
+  
+
+/* Miscellaneous Styles */
+.component {
+    padding: 2rem 0;
+}
+
+.btnlist {
+    display: flex;
+}
+
+.btnlist div {
+    flex: auto;
+    padding: 0.2rem;
+}
