@@ -1,18 +1,18 @@
 {
-    "compilerOptions": {
-      "target": "ES5",
-      "lib": ["dom", "esnext"], // DOM 관련 타입 지원 추가
-      "jsx": "react", // React 17 이상일 경우
-      "types": ["react", "react-dom"], // React와 React DOM 타입 정의 포함
-      "moduleResolution": "node",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "resolveJsonModule": true,
-      "allowJs": true
-    },
-    "include": [
-      "src"
-    ]
-  }
-  
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["dom", "esnext"], // DOM 관련 타입 지원 추가
+    "jsx": "react", // React 17 이상일 경우 "react-jsx" 사용
+    "types": ["react", "react-dom"], // React와 React DOM 타입 정의 포함
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowJs": true
+  },
+  "include": [
+    "src",
+    "src/types/**/*.d.ts"
+  ]
+}

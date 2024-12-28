@@ -85,9 +85,6 @@ fieldset {
   border: 0;
 }
 
-hr {
-  display: none;
-}
 
  /* 3. 공통 스타일 */
  html,
@@ -139,50 +136,6 @@ em {
   font-style: normal;
   font-weight: normal;
 }
-
-/* 5. 입력 폼 스타일 */
-input,
-select,
-textarea,
-button {
-   border: none; 
-  font-size: var(--font-size-base);
-  vertical-align: middle;
-  color: var(--text-600-color);
-  height: 2rem;
-  width: 100%;
-  border-radius: 0.6rem;
-}
-
-button {
-  border:0.1rem solid var(--text-500-color);
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border: none;
-}
-
-textarea {
-  padding: 5px 0;
-  height: 8rem !important;
-}
-
-input::-webkit-input-placeholder {
-  color: var(--placeholder-color);
-}
-
-/* 비활성화/읽기 전용 스타일 */
-input[readonly],
-input[disabled],
-textarea[readonly],
-textarea[disabled] {
-  background: var(--disabled-bg-color);
-  border-color: var(--disabled-border-color);
-  color: var(--disabled-text-color);
-}
-
 
 
 /* 7. 레이아웃 */
@@ -239,7 +192,7 @@ td {
 
 /* 소매 체크박스 스타일 */
 .retail-checkbox input[type="checkbox"] {
-  border: 1px solid #ccc;
+  border: 1px solid #ccc !important;
 }
 
 .retail-checkbox input[type="checkbox"]:checked {
@@ -261,11 +214,11 @@ td {
   border-color: var(--secondary-color);
 }
 input[type="checkbox"] {
-  border: 1px solid #ccc;
+  border: 1px solid #ccc !important;
 }
 input[type="checkbox"]:checked {
   background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  border-color: var(--primary-color) !important;
 }
 
 

@@ -1,0 +1,782 @@
+
+/* Reset 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+               'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 
+               'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+fieldset, hr {
+  border: 0;
+}
+
+ /* 공통 스타일 */
+ hbody {
+  background: var(--background-color, #fff);
+  color: var(--text-200-color, #333);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  min-width: 32rem;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+
+/* 타이포그래피 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.8rem; }
+
+label {
+  font-size: 1.4rem;
+}
+
+address, cite, code, em {
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* 버튼 스타일 */
+button {
+  border: 0.1rem solid var(--text-500-color);
+  background: #fff;
+  font-weight: 300;
+  border-radius: var(--border-radius, 0.6rem);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.btn-fill {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.wholesale .btn-fill {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #fff;
+}
+
+.btn-line {
+  background: #fff;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-disable {
+  color: var(--disabled-text-color);
+  background: var(--disabled-bg-color);
+  border: none;
+}
+
+.btn-dark {
+  color: #fff;
+  background: var(--text-600-color);
+  border: none;
+}
+
+.btn-large { height: 4.6rem; font-size: 1.6rem; }
+.btn-medium { height: 3.2rem; font-size: 1.6rem; }
+.btn-small { height: 2.6rem; font-size: 1.4rem; }
+.btn-xsmall { height: 2rem; font-size: 1.1rem; }
+
+
+/* 폼 스타일 */
+input, textarea, button, select {
+  font-size: 1.6rem;
+  border-radius: 0.6rem;
+  width: 100%;
+}
+
+textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  appearance: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked, input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+}
+
+.input-container {
+  display: flex;
+  border: 1px solid var(--text-300-color);
+  border-radius: 0.6rem;
+  padding: 1rem;
+}
+
+
+/* 비활성화/읽기 전용 스타일 */
+input[readonly],
+input[disabled],
+textarea[readonly],
+textarea[disabled] {
+  background: var(--disabled-bg-color);
+  border-color: var(--disabled-border-color);
+  color: var(--disabled-text-color);
+}
+
+
+/* 5. 입력 폼 스타일 */
+input,
+select,
+textarea,
+button {
+  font-size: var(--font-size-base);
+  vertical-align: middle;
+  color: var(--text-600-color);
+  /* height: 2rem; */
+  width: 100%;
+  border-radius: 0.6rem;
+}
+
+
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--text-300-color) !important;
+  border: 1px solid;
+}
+
+input:focus {
+  border: none !important;
+}
+
+input::-webkit-input-placeholder {
+  color: var(--placeholder-color);
+}
+
+/* 비활성화/읽기 전용 스타일 */
+input[readonly],
+input[disabled],
+textarea[readonly],
+textarea[disabled] {
+  background: var(--disabled-bg-color);
+  border-color: var(--disabled-border-color);
+  color: var(--disabled-text-color);
+}
+
+.text-area {
+  padding:1rem;
+  border-color: var(--text-300-color);
+} 
+
+.text-area:focus,
+.text-area.focused { /* 클래스나 기본 :focus 사용 */
+  border-color: var(--primary-color)!important; /* 포커스 시 보더 색상 */
+  outline: none; /* 기본 outline 제거 */
+}
+
+
+/* App Bar Styles */
+.appbar {
+    height: 4.6rem;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    text-align: center;
+    position: fixed;
+    z-index: 10;
+}
+
+.retail .appbar.main {
+    background-color: var(--primary-color);
+}
+
+.wholesale .appbar {
+    background-color: var(--secondary-color);
+}
+
+.appbar .fl, .appbar .fr {
+    margin-top: 0.8rem;
+}
+
+.appbar .fl {
+    float: left;
+}
+
+.appbar .fr {
+    float: right;
+}
+
+.appbar .center {
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.appbar button {
+    background-size: contain;
+    border: 0;
+    overflow: hidden;
+    height: 3.2rem;
+    width: 3.2rem;
+    text-indent: -100rem;
+}
+
+.appbar button.appbar-logo {
+    background: url('../images/appbar-logo.svg') no-repeat center;
+    width: 8rem;
+}
+
+.appbar-menu {
+    background: url('../images/appbar-menu.svg') no-repeat center;
+}
+
+.appbar-search {
+    background: url('../images/appbar-search.svg') no-repeat center;
+}
+
+.appbar-alarm {
+    background: url('../images/appbar-alarm.svg') no-repeat center;
+}
+
+.appbar-cart {
+    background: url('../images/appbar-cart.svg') no-repeat center;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #000;
+}
+.appbar-pre {
+    background: url('../images/appbar-pre.svg') no-repeat center;
+}
+.appbar .title {
+    color:#fff;
+    font-weight: 400;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 3rem;
+}
+
+
+.badge {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background-color: #fff;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Form Styles */
+.form-group {
+    margin: 1rem 0;
+    position: relative;
+}
+.input-container {
+    display: flex;
+    border: 0.1rem solid  var(--text-300-color);
+    border-radius: .6rem;
+    padding: 1rem;
+}
+.input-container input {
+  border:none;
+  height:2.4rem;
+}
+.input-container .btn-small{
+    min-width: 6rem;
+    width: auto;
+}
+
+.input-container.focused {
+    border-color: var(--primary-color);
+  }
+
+  .input-container.retail {
+    border-color: var(--primary-color); /* 소매 배경색 */
+  }
+  
+  .input-container.wholesale {
+    border-color: var(--secondary-color); /* 도매 배경색 */
+  }
+  .wholesale .input-container.focused {
+    border-color: var(--secondary-color) !important; /* 도매 배경색 */
+  }
+
+
+.input-container label {
+    display: block;
+}
+
+/* Radio Styles */
+
+input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type='radio']:checked {
+    background-color: var(--primary-color);
+    border: 0.5rem solid #fff !important;
+    box-shadow: 0 0 0 1px var(--primary-color);
+}
+.btn-clear, .btn-eye, .btn-eye-off {
+    background: url('../images/btn-clear.svg') no-repeat center;
+    background-size: contain;
+    border: 0;
+    overflow: hidden;
+    height: 2.4rem;
+    width: 2.9rem;
+    text-indent: -100rem;
+    margin-left:0.5rem
+}
+.btn-eye-on {
+    background: url('../images/btn-eye.svg') no-repeat center;
+    right:1rem;
+    border: 0;
+    overflow: hidden;
+    height: 2.4rem;
+    width: 2.9rem;
+    text-indent: -100rem;
+    margin-left:0.5rem
+}
+.btn-eye-off {
+    background: url('../images/btn-eye-off.svg') no-repeat center;
+    right:1rem;
+}
+
+.wholesale input[type='radio']:checked {
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 0 1px var(--secondary-color);
+}
+
+/* Radio Group Styles */
+.radio-group {
+    display: flex;
+    padding: 1rem 0;
+}
+
+.radio-group label, .check-group label {
+    display: flex;
+    padding-left: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.radio-group div {
+    flex: 1;
+    display: flex;
+}
+
+/* Checkbox Styles */
+.check-group {
+    padding: 0.6rem 0;
+    display: block;
+}
+.check-item {
+    display: flex;
+}
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 4px;
+    background-color: #fff;
+    position: relative;
+    cursor: pointer;
+    /* accent-color: transparent; */
+  }
+
+input[type="checkbox"]:checked:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #fff;
+    -webkit-mask-image: url('../images/ico-checked.svg');
+    mask-image: url('../images/ico-checked.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    border:1px solid #000;
+}
+
+
+
+/* 10.modal */
+.modal-container {
+    flex: 1;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .modal {
+    background: #fff;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    max-width: 40rem;
+    width: calc(100% - 8rem);
+    position: relative;
+  }
+  
+  
+  .btn-close-modal{
+    background: url('../images/btn-close-modal.svg') no-repeat center;
+    background-size: contain;
+    border: 0;
+    overflow: hidden;
+    height: 2.4rem;
+    width: 2.4rem;
+    text-indent: -100rem;
+    position: absolute;
+    right:2rem
+  }
+   
+  
+
+/* Miscellaneous Styles */
+.component {
+    padding: 2rem 0;
+}
+
+.btnlist {
+    display: flex;
+}
+
+.btnlist div {
+    flex: auto;
+    padding: 0.2rem;
+}
+
+
+/* 상품이미지 */
+.thumbnail {
+   width: 16rem;
+}
+.thumbnail-content {
+  width: 16rem;
+  height:19rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  border:1px solid var( --text-100-color);
+  position: relative;
+}
+.thumbnail-content .promotion-bedge {
+  position: absolute;
+  top:0
+}
+.thumbnail-content .promotion-bedge span {
+  display: block;
+  background-color: var(--primary-color);
+  font-size: 1.1rem;
+  color:#fff;
+  border-radius:0.6rem 0 0.6rem 0 ;
+  padding:0.4rem;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+.thumbnail-content .promotion-bedge span.hotdeal {
+  background-color: var(--secondary-color);
+}
+.thumbnail img {
+  width: 100%;
+  /* border-radius: 1rem; */
+}
+.thumbnail .seller-logo {
+  height: 4.4rem;
+  width: 4.4rem;
+  position: absolute;
+  bottom:0.6rem;
+  left:0.6rem;
+}
+.thumbnail .seller-logo img {
+  border-radius: 50%;
+  border:2px solid var(--text-300-color);
+}
+.thumbnail-content .btn-like, .thumbnail-content .btn-like-on  {
+  background: url('../images/ico-like.svg') no-repeat center;
+  width:4rem;
+  height:4rem;
+  position: absolute;
+  top:0;
+  right:0;
+}
+.thumbnail-content .btn-like-on {
+  background: url('../images/ico-like-on.svg') no-repeat center;
+}
+
+.product-info { 
+  width: 16rem;
+  margin-top:1rem;
+  font-size: 1.4rem;
+  top : 22rem;
+}
+
+.product-price {
+  font-weight: 600;
+}
+
+
+/* 탭 */
+.tabs-group .tabs {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom:20px; 
+  border:0;
+
+}
+/* .tabs-group .tabs button {
+  border:0;
+  border-bottom:2px solid var(--text-300-color);
+  border-radius: 0;
+  height:4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+} */
+/* .tabs-group .tab-button.active {
+  border:0;
+   border-bottom:2px solid var(--primary-color);
+   color:var(--primary-color);
+} */
+
+
+/* Line 스타일 */
+.tabs-line .tab-button {
+  border: none;
+  border-bottom:2px solid var(--text-300-color);
+  border-radius: 0;
+  height:4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.tabs-line .tabs-button .tab-button.active {
+  border-bottom:2px solid var(--primary-color);
+  color:var(--primary-color);
+}
+  
+.tabs-line .tab-button.active {
+  border-bottom:2px solid var(--primary-color);
+  font-weight: bold;
+  background-color: transparent;
+  color:var(--primary-color);
+}
+
+/* Button 스타일 */
+.tabs-button .tab-button {
+  border-radius: 4px;
+  height:3.6rem;
+  font-size:1.2rem;
+}
+
+.tabs-button .tab-button.active {
+  border-color: var(--primary-color);
+  color:var(--primary-color);
+}
+
+
+/* Round Style */
+.tabs-round .tab-button {
+  background-color: #f9f9f9;
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+}
+
+.tabs-round .tab-button.active {
+  border-color: var(--primary-color);
+  color:var(--primary-color);
+}
+
+
+
+
+
+
+
+label.form-title {
+  padding: 1rem 0 0.5rem;
+  display: flex
+;
+  font-size: 1.4rem;
+}
+.input-container select {
+  border: none;
+  border-radius: 4px;
+  background-color: #ffffff;
+  height: 2.4rem;
+}
+
+.input-container select:focus {
+  outline: none;
+}
+
+
+
+
+
+
+
+.btn-icon {
+  background-size: contain;
+  border: 0;
+  overflow: hidden;
+  text-indent: -100rem;
+}
+
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%; /* 부모 컨테이너의 너비에 맞게 동작 */
+}
+
+
+
+hr.divider {
+  height: 0.4rem;
+  background-color: var(--text-100-color);
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 화면 중앙에 배치 */
+.calendar-center {
+  display: flex;
+  justify-content: center; /* 가로 중앙 */
+  align-items: center; /* 세로 중앙 */
+  min-height: 100vh; /* 전체 화면 높이 */
+  background-color: #f4f4f4; /* 배경색 (선택 사항) */
+}
+
+
+/* react-datepicker 크기 조정 */
+.react-datepicker {
+  font-size: 16px; /* 전체 글씨 크기 */
+  min-width: 320px; /* 최소 너비 */
+  max-width: 480px; /* 최대 너비 */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left:-50px;
+  border:1px solid #000
+}
+
+.react-datepicker__header {
+  font-size: 18px; /* 헤더 글씨 크기 */
+  padding: 15px 20px;
+}
+
+.react-datepicker__day,
+.react-datepicker__day-name {
+  width: 30px; /* 각 날짜 셀의 크기 */
+  height: 30px; /* 각 날짜 셀의 높이 */
+  font-size: 16px; /* 날짜 글씨 크기 */
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border-radius: 50%;
+}
+/* 
+.react-datepicker__day--selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.react-datepicker__day:hover {
+ background-color: #007bff;
+  color: white;
+} */
+
+.react-datepicker__current-month {
+  font-size: 18px;
+  font-weight: bold;
+}

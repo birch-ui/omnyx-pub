@@ -3,16 +3,11 @@ import React, { useState, forwardRef } from 'react';
 import tempImage01 from './assets/images/temp/temp01.png';
 import tempImage02 from './assets/images/temp/temp02.png';
 import sellerLogoImage from './assets/images/seller-logo.png';
-
 //콤퍼넌트 
 import InputField from './components/input-field-component';
 import CalendarComponent from './components/calendar-component'; 
 import SelectField from './components/select-field-component'; 
-import TextAreaField from './components/textarea-field-component'; 
-import ButtonGroup from './components/button-group-component'; 
-import RadioGroup from './components/radio-group-component'; 
-import CheckBoxGroup from './components/checkbox-group-component'; 
-import TabsComponent from './components/tabs-component'; 
+
 
 const AllComponent = () => {
 
@@ -29,40 +24,15 @@ const AllComponent = () => {
     }));
   };
 
-// 텍스트에어이어 콤퍼넌트
-  const [description, setDescription] = useState('');
-
-  const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setDescription(event.target.value);
-  };
-
-
-// 라이오그룹 콤퍼넌트
-  const [selectedLoginType, setSelectedLoginType] = useState('retail');
-
-  const handleLoginTypeChange = (value: string) => {
-    setSelectedLoginType(value);
-  };
-
-// 체크박스 콤퍼넌트
-  const options = [
-    { id: 'item1', label: '항목1', value: 'item1' },
-    { id: 'item2', label: '항목2', value: 'item2' },
-    { id: 'item3', label: '항목3', value: 'item3' },
-  ];
-
-  // 탭
-  const tabGroups = {
-    group1: ['주문목록', '주문취소'],
-    group2: ['1개월', '2개월', '3개월', '6개월'], 
-    group3: ['1주일', '1개월', '2개월'],
-  };
 
 
 
 
 
-// **************************************************************정리해야함
+
+  
+
+
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
@@ -98,6 +68,7 @@ const AllComponent = () => {
 
   return <div style={{position:'relative'}}>
 
+
     <div className='component'>
       <h3>입력필드 (콤포넌트)</h3>
       <form>
@@ -108,21 +79,21 @@ const AllComponent = () => {
           placeholder="사용자 이름을 입력하세요"
           label="사용자 이름"
         />
-       <InputField
+        <InputField
           type="password"
           id="password"
           name="password"
           placeholder="비밀번호를 입력하세요"
           label="비밀번호"
         />
-         <InputField
+        <InputField
           type="email"
           id="email"
           name="email"
           placeholder="이메일 주소를 입력하세요"
           label="이메일"
         />
-          <InputField
+        <InputField
           type="cpf"
           id="cpf"
           name="cpf"
@@ -137,146 +108,40 @@ const AllComponent = () => {
 
     <div className='component'>
       <h3>셀렉트 콤퍼넌트</h3>
-        <SelectField
-          label="대분류 선택"
-          value={selectValues.select1}
-          onChange={handleSelectChange('select1')}
-          options={[
-            { value: '여성', label: '여성' },
-            { value: '남성', label: '남성' },
-            { value: '스포츠 & 야외활동', label: '스포츠 & 야외활동' },
-            { value: '속옷 & 잠옷', label: '속옷 & 잠옷' },
-          ]}
-        />
-        <SelectField
-          label="중분류 선텍"
-          value={selectValues.select2}
-          onChange={handleSelectChange('select2')}
-          options={[
-            { value: '여성의류', label: '여성의류' },
-            { value: '플러스 여성의류', label: '플러스 여성의류' },
-            { value: '세계의류', label: '세계의류' },
-            { value: '결혼식 & 이벤트', label: '결혼식 & 이벤트' },
-            { value: '특수의류', label: '특수의류' }
-          ]}
-        />
-    </div>
-
-    <hr className='divider'></hr>
-
-    <div className='component'>
-      <h3>텍스트에어리어 콤퍼넌트</h3>
       <div>
-        <TextAreaField
-          label="회사소개"
-          value={description}
-          onChange={handleDescriptionChange} 
-          placeholder="회사소개를 입력하세요"
-          rows={5} 
-        />
-      </div>
-    </div>
-
-    <hr className='divider'></hr>
-
-    <div className='component'>
-      <h3>버튼 콤퍼넌트</h3>
-      {/* Large Buttons */}
-      <ButtonGroup
-        buttons={[
-          { label: 'Button', size: 'btn-large', style: '', type: 'retail' },
-          { label: 'Button', size: 'btn-large', style: 'btn-fill', type: 'retail' },
-          { label: 'Button', size: 'btn-large', style: 'btn-fill', type: 'wholesale' },
-          { label: 'Button', size: 'btn-large', style: 'btn-disable', type: 'retail' },
-          { label: 'Button', size: 'btn-large', style: 'btn-line', type: 'retail' },
-          { label: 'Button', size: 'btn-large', style: 'btn-dark', type: 'retail' },
-        ]}
-      />
-
-      {/* Medium Buttons */}
-      <ButtonGroup
-        buttons={[
-          { label: 'Button', size: 'btn-medium', style: '', type: 'retail' },
-          { label: 'Button', size: 'btn-medium', style: 'btn-fill', type: 'retail' },
-          { label: 'Button', size: 'btn-medium', style: 'btn-fill', type: 'wholesale' },
-          { label: 'Button', size: 'btn-medium', style: 'btn-disable', type: 'retail' },
-          { label: 'Button', size: 'btn-medium', style: 'btn-line', type: 'retail' },
-          { label: 'Button', size: 'btn-medium', style: 'btn-dark', type: 'retail' },
-        ]}
-      />
-
-      {/* Small Buttons */}
-      <ButtonGroup
-        buttons={[
-          { label: 'Button', size: 'btn-small', style: '', type: 'retail' },
-          { label: 'Button', size: 'btn-small', style: 'btn-fill', type: 'retail' },
-          { label: 'Button', size: 'btn-small', style: 'btn-fill', type: 'wholesale' },
-          { label: 'Button', size: 'btn-small', style: 'btn-disable', type: 'retail' },
-          { label: 'Button', size: 'btn-small', style: 'btn-line', type: 'retail' },
-          { label: 'Button', size: 'btn-small', style: 'btn-dark', type: 'retail' },
-        ]}
-      />
-
-      {/* Extra Small Buttons */}
-      <ButtonGroup
-        buttons={[
-          { label: 'Button', size: 'btn-xsmall', style: '', type: 'retail' },
-          { label: 'Button', size: 'btn-xsmall', style: 'btn-fill', type: 'retail' },
-          { label: 'Button', size: 'btn-xsmall', style: 'btn-fill', type: 'wholesale' },
-          { label: 'Button', size: 'btn-xsmall', style: 'btn-disable', type: 'retail' },
-          { label: 'Button', size: 'btn-xsmall', style: 'btn-line', type: 'retail' },
-          { label: 'Button', size: 'btn-xsmall', style: 'btn-dark', type: 'retail' },
-        ]}
-      />
-
-    </div>
-
-    <hr className='divider'></hr>
-
-    <div className='component'>
-      <h3>Radio Group </h3>
-      <RadioGroup
-        name="loginType"
+      <SelectField
+        label="대분류 선택"
+        value={selectValues.select1}
+        onChange={handleSelectChange('select1')}
         options={[
-          { id: 'retailLogin', label: '소매로 로그인', value: 'retail' },
-          { id: 'wholesaleLogin', label: '도매로 로그인', value: 'wholesale' },
+          { value: '여성', label: '여성' },
+          { value: '남성', label: '남성' },
+          { value: '스포츠 & 야외활동', label: '스포츠 & 야외활동' },
+          { value: '속옷 & 잠옷', label: '속옷 & 잠옷' },
         ]}
-        selectedValue={selectedLoginType}
-        onChange={handleLoginTypeChange}
       />
+      <SelectField
+        label="중분류 선텍"
+        value={selectValues.select2}
+        onChange={handleSelectChange('select2')}
+        options={[
+          { value: '여성의류', label: '여성의류' },
+          { value: '플러스 여성의류', label: '플러스 여성의류' },
+          { value: '세계의류', label: '세계의류' },
+          { value: '결혼식 & 이벤트', label: '결혼식 & 이벤트' },
+          { value: '특수의류', label: '특수의류' }
+        ]}
+      />
+      
+
+    </div>
     </div>
 
     <hr className='divider'></hr>
-    
-    <div className='component'>
-      <h3>Checkbox Group</h3>
-      <CheckBoxGroup options={options} />
-    </div>
-
-    <hr className='divider'></hr>
-
-    <div className='component'>
-      <h3>탭</h3>
-      {/* Line 스타일 탭 */}
-      <h2>Line Style Tabs</h2>
-      <TabsComponent groups={{ group1: tabGroups.group1 }} styleType="line" />
-
-      {/* Button 스타일 탭 */}
-      <h2>Button Style Tabs</h2>
-      <TabsComponent groups={{ group2: tabGroups.group2 }} styleType="button" />
-
-       {/* 라운드 스타일 탭 */}
-       <h2>라운드 Style Tabs</h2>
-       <TabsComponent groups={{ group3: tabGroups.group3 }} styleType="round" />
-
-    </div>
 
 
 
 
-
-
- <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
 
     {/* 달력 컴포넌트*/}
     <div className='component'>
@@ -298,6 +163,62 @@ const AllComponent = () => {
 
 
 
+    <div className='component'>
+      <h3>탭</h3>
+      <div>
+        {/* 첫 번째 탭 그룹 */}
+        <div className='tabs' style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+          <button
+            className={activeTabs.group1 === '1주일' ? 'tab-button active' : 'tab-button'}
+            onClick={() => handleTabClick('group1', '1주일')}
+          >
+            1주일
+          </button>
+          <button
+            className={activeTabs.group1 === '2주일' ? 'tab-button active' : 'tab-button'}
+            onClick={() => handleTabClick('group1', '2주일')}
+          >
+            2주일
+          </button>
+          <button
+            className={activeTabs.group1 === '1개월' ? 'tab-button active' : 'tab-button'}
+            onClick={() => handleTabClick('group1', '1개월')}
+          >
+            1개월
+          </button>
+        </div>
+        <div>
+          <h3>첫 번째 그룹 선택된 탭: {activeTabs.group1}</h3>
+        </div>
+
+        {/* 두 번째 탭 그룹 */}
+        <div className='tabs' style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+          <button
+            className={activeTabs.group2 === '1개월' ? 'tab-button active' : 'tab-button'}
+            onClick={() => handleTabClick('group2', '1개월')}
+          >
+            1개월
+          </button>
+          <button
+            className={activeTabs.group2 === '2개월' ? 'tab-button active' : 'tab-button'}
+            onClick={() => handleTabClick('group2', '2개월')}
+          >
+            2개월
+          </button>
+          <button
+            className={activeTabs.group2 === '3개월' ? 'tab-button active' : 'tab-button'}
+            onClick={() => handleTabClick('group2', '3개월')}
+          >
+            3개월
+          </button>
+        </div>
+        <div>
+          <h3>두 번째 그룹 선택된 탭: {activeTabs.group2}</h3>
+        </div>
+      </div>
+
+
+    </div>
 
     <div className='component'>
       <h3>상품이미지</h3>
@@ -400,6 +321,84 @@ const AllComponent = () => {
         </div>
       </div>
     </div>
+    <div className='component'>
+      <h3>2. Button</h3>
+      <div className='btnlist'>
+        <div className='retail'><button type='submit' className='btn-large'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-fill btn-large'>Button</button></div>
+        <div className='wholesale'><button type='submit' className='btn-fill btn-large'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-disable btn-large'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-line btn-large'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-dark btn-large'>Button</button></div>
+      </div>
+      <div className='btnlist'>
+        <div className='retail'><button type='submit' className='btn-medium'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-fill btn-medium'>Button</button></div>
+        <div className='wholesale'><button type='submit' className='btn-fill btn-medium'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-disable btn-medium'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-line btn-medium'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-dark btn-medium'>Button</button></div>
+      </div>
+      <div className='btnlist'>
+        <div className='retail'><button type='submit' className='btn-small'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-fill btn-small'>Button</button></div>
+        <div className='wholesale'><button type='submit' className='btn-fill btn-small'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-disable btn-small'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-line btn-small'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-dark btn-small'>Button</button></div>
+      </div>
+      <div className='btnlist'>
+        <div className='retail'><button type='submit' className='btn-xsmall'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-fill btn-xsmall'>Button</button></div>
+        <div className='wholesale'><button type='submit' className='btn-fill btn-xsmall'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-disable btn-xsmall'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-line btn-xsmall'>Button</button></div>
+        <div className='retail'><button type='submit' className='btn-dark btn-xsmall'>Button</button></div>
+      </div>
+    </div>
+
+  
+    <div className='component'>
+      <h3>Radio Group </h3>
+      <div className="radio-group">
+        <div className="radio-item">
+          <input
+            type="radio"
+            id="retailLogin"
+            name="loginType"
+            value="retail"
+          />
+          <label htmlFor="retailLogin">소매로 로그인</label>
+        </div>
+        <div className="radio-item">
+          <input
+            type="radio"
+            id="wholesaleLogin"
+            name="loginType"
+            value="wholesale"
+          />
+          <label htmlFor="wholesaleLogin">도매로 로그인</label>
+        </div>
+      </div>
+    </div>
+
+
+    <div className='component'>
+      <h3>Checkbox Group</h3>
+      <div className="check-group">
+        <div className="check-item">
+          <input
+            type="checkbox"
+            id="stayLoggedIn"
+            name="stayLoggedIn"
+            value="yes"
+          />
+          <label htmlFor="stayLoggedIn">로그인 상태 유지</label>
+        </div>
+      </div>
+
+    </div>
+
 
 
 

@@ -2,27 +2,80 @@ import React, { useState } from 'react';
 import Login from './login';
 import FindPassword from './find-password';
 import SignUp from './sign-up';
-import AllComponent from './all-componet';
-import SignUpComplete from './sign-up-complete';
-import './asset/css/index-pub.css'; // 인덱스 퍼블리싱에만 사용
 
-// 컴포넌트 목록을 관리하는 객체
-const componentMap: { [key: string]: React.ReactNode } = {
-  login: <Login />,
-  findPassword: <FindPassword />,
-  signUp: <SignUp />,
-  signUpComplete: <SignUpComplete />,
-  allComponent: <AllComponent />
-};
+import AllComponent from './all-componet';
+import CalendarComponent from './components/calendar-component';
+import InputFieldComponent from './components/input-field-component';
+import SignUpComplete from './sign-up-complete';
+
+import './assets/css/index-pub.css'; // 인덱스 퍼블리싱에만 사용
+
+
 
 function App(): React.ReactElement {
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
+
+
+  const componentMap: { [key: string]: React.ReactNode } = {
+    login: <Login />,
+    findPassword: <FindPassword />,
+    signUp: <SignUp />,
+    signUpComplete: <SignUpComplete />,
+    allComponent: <AllComponent />,
+    calendarComponent: (
+      <CalendarComponent
+        startDate={startDate}
+        endDate={endDate}
+        onStartDateChange={(date: Date | null) => setStartDate(date)}
+        onEndDateChange={(date: Date | null) => setEndDate(date)}
+      />
+    ),
+    inputFieldComponent: (
+      <form>
+      <InputFieldComponent
+        type="text"
+        id="username"
+        name="username"
+        placeholder="사용자 이름을 입력하세요"
+        label="사용자 이름"
+      />
+     <InputFieldComponent
+        type="password"
+        id="password"
+        name="password"
+        placeholder="비밀번호를 입력하세요"
+        label="비밀번호"
+      />
+       <InputFieldComponent
+        type="email"
+        id="email"
+        name="email"
+        placeholder="이메일 주소를 입력하세요"
+        label="이메일"
+      />
+        <InputFieldComponent
+        type="cpf"
+        id="cpf"
+        name="cpf"
+        placeholder="CNPJ 또는 CPF 입력하세요"
+        label="법인번호(CNPJ) 또는 개인번호(CPF)"
+        buttonLabel="중복확인"
+      />
+    </form>
+    ),
+  };
+
+
   const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(componentMap.allComponent);
+  // const [selectedcalendar, setSelectedcalendar] = useState<React.ReactNode>(componentMap.calendarComponent);
   const [viewStyle, setViewStyle] = useState({ width: '375px', height: '812px' });
 
   const handleLinkClick = (componentKey: keyof typeof componentMap) => {
     const selected = componentMap[componentKey];
     if (selected) {
       setSelectedComponent(selected);
+      // setSelectedcalendar(selected);
     }
   };
 
@@ -35,8 +88,10 @@ function App(): React.ReactElement {
   };
 
   return (
-    <div style={{ display: 'flex', padding: '1rem' }}>
-      {/* 왼쪽 영역 */}
+    <div style={{ display: 'flex', padding: '1rem', gap:'1rem'}}>
+
+  
+      {/* 화면 영역 */}
       <div className="indexSt" style={{ flex: 2 }}>
         <h3>OMNYX INDEX</h3>
         <table>
@@ -55,23 +110,6 @@ function App(): React.ReactElement {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>콤포넌트 공통</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td
-                className="id"
-                onClick={() => handleLinkClick('allComponent')}
-                style={{ cursor: 'pointer' }}
-              >
-                all-componet
-              </td>
-              <td></td>
-              <td className="date">2025-01-01</td>
-              <td className="etc"></td>
-            </tr>
             <tr>
               <td rowSpan={4}>로그인</td>
               <td>로그인</td>
@@ -542,6 +580,50 @@ function App(): React.ReactElement {
           </tbody>
         </table>
       </div>
+
+
+
+      <div className="indexSt" style={{ width: 'auto' }}>
+        <h3>COMPONENT INDEX</h3>
+        <table>
+          <thead>
+            <tr>
+              <th className='w150'>콤포넌트명(파일명.tsx)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                className="id"
+                onClick={() => handleLinkClick('allComponent')}
+                style={{ cursor: 'pointer' }}
+              >
+                all-componets
+              </td>
+            </tr>
+            <tr>
+              <td
+                className="id"
+                onClick={() => handleLinkClick('inputFieldComponent')}
+                style={{ cursor: 'pointer' }}
+              >
+               input-field-component.
+              </td>
+            </tr>
+            {/* <tr>
+              <td
+                className="id"
+                onClick={() => handleLinkClick('calendarComponent')}
+                style={{ cursor: 'pointer' }}
+              >
+                calendar-component
+              </td>
+            </tr> */}
+          </tbody>
+        </table>
+      </div>
+
+
 
         {/* 모바일/태블릿 섹션 */}
       <div style={{ ...viewStyle }} className="view">

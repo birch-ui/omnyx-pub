@@ -10,14 +10,14 @@ const SignUp = () => {
           <button className='appbar-pre'>이전페이지</button>
         </div>
         <div className='fl'>
-          <h2 className='title'>공급업체로 가입하기</h2>
+          <h2 className='title'>판매자로 가입하기</h2>
         </div>
       </div>
 
 
       <div className='contents'>
         <h2 className="register-prompt">
-          Omni에서 도매 공급업체로 가입하면
+          Omnyx에서 판매자로 가입하면
         </h2>
         <p className='register-prompt-info'>디지털화된 마켓플레이스 경험, 새로운 트렌드에 대한 쉬원 접근, 신뢰할 수 있는 공급업체의 광범위한 네트워크 활용을 할 수 있습니다.
           공업업체로 가입하면 브랜드를 홍보하고 역동적인 패션 시장에서 앞서 나갈 수 있는 귀중한 기회가 열립니다.
@@ -40,7 +40,7 @@ const SignUp = () => {
         </div>
 
         <div className="form-group">
-          <label>도매업체명</label>
+          <label>판매업체명</label>
           <div className="input-container" >
             <input type="text"
               id="id"
