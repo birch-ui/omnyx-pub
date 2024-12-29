@@ -57,44 +57,27 @@ const AllComponent = () => {
     group2: ['1개월', '2개월', '3개월', '6개월'], 
     group3: ['1주일', '1개월', '2개월'],
   };
+  const [activeTabs, setActiveTabs] = useState({
+    group1: '1주일', // 첫 번째 탭 그룹
+    group2: '1개월', // 두 번째 탭 그룹
+  });
 
 
 
 
 
-// **************************************************************정리해야함
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
-
-
-  const [selectedOption, setSelectedOption] = useState('1주일'); // 초기 선택값
-
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value); // 선택된 값을 업데이트
-  };
-
+  const [selectedOption, setSelectedOption] = useState('1주일');
   const [focusedInput, setFocusedInput] = useState<string | null>(null);
-
-  // const handleFocus = (inputName: string) => setFocusedInput(inputName);
-  const handleBlur = () => setFocusedInput(null);
-
   const [isLiked, setIsLiked] = useState(false);
   const toggleLike = () => {
     setIsLiked((prev) => !prev);
   };
 
 
-  const [activeTabs, setActiveTabs] = useState({
-    group1: '1주일', // 첫 번째 탭 그룹
-    group2: '1개월', // 두 번째 탭 그룹
-  });
 
-  const handleTabClick = (group: string, tabName: string) => {
-    setActiveTabs((prev) => ({
-      ...prev,
-      [group]: tabName, // 해당 그룹의 활성화된 탭 업데이트
-    }));
-  };
+
 
   return <div style={{position:'relative'}}>
 
@@ -257,18 +240,9 @@ const AllComponent = () => {
 
     <div className='component'>
       <h3>탭</h3>
-      {/* Line 스타일 탭 */}
-      <h2>Line Style Tabs</h2>
       <TabsComponent groups={{ group1: tabGroups.group1 }} styleType="line" />
-
-      {/* Button 스타일 탭 */}
-      <h2>Button Style Tabs</h2>
       <TabsComponent groups={{ group2: tabGroups.group2 }} styleType="button" />
-
-       {/* 라운드 스타일 탭 */}
-       <h2>라운드 Style Tabs</h2>
        <TabsComponent groups={{ group3: tabGroups.group3 }} styleType="round" />
-
     </div>
 
 
@@ -276,7 +250,7 @@ const AllComponent = () => {
 
 
 
- <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
+ <br></br> <br></br> <br></br> <br></br> 
 
     {/* 달력 컴포넌트*/}
     <div className='component'>
