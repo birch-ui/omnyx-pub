@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../assets/css/component.css';
@@ -15,9 +15,9 @@ const CalendarInput = forwardRef<HTMLInputElement, { value?: string; onClick?: (
         padding: '5px 5px',
         cursor: 'pointer',
         backgroundColor: '#f9f9f9',
-        fontSize: '18px', // 입력 필드의 글씨 크기
+        fontSize: '18px',
         width: '100%',
-        maxWidth: '400px', // 입력 필드의 최대 크기
+        maxWidth: '400px',
       }}
       onClick={onClick}
     >
@@ -29,7 +29,7 @@ const CalendarInput = forwardRef<HTMLInputElement, { value?: string; onClick?: (
         style={{
           border: 'none',
           background: 'transparent',
-          fontSize: '18px', // 입력 필드 글씨 크기
+          fontSize: '18px',
           color: '#333',
           outline: 'none',
           flex: 1,
@@ -55,21 +55,17 @@ const CalendarComponent: React.FC<CalendarProps> = ({
 }) => {
   return (
     <div>
-      <h3>달력(콤퍼넌트)</h3>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px'}}>
+      <div className="calendar-range">
         {/* 시작 날짜 */}
         <div>
           <DatePicker
-            selected={startDate}  
+            selected={startDate || new Date()} // 기본값으로 오늘 날짜
             onChange={onStartDateChange}
             dateFormat="yyyy-MM-dd"
             customInput={<CalendarInput />}
             className="custom-datepicker"
             popperPlacement="bottom"
           />
-          {/* <div style={{ marginTop: '20px', fontSize: '18px' }}>
-            {startDate ? `시작 날짜: ${startDate.toLocaleDateString()}` : '시작 날짜를 선택하세요'}
-          </div> */}
         </div>
 
         {/* 구분 표시 */}
@@ -78,16 +74,13 @@ const CalendarComponent: React.FC<CalendarProps> = ({
         {/* 종료 날짜 */}
         <div>
           <DatePicker
-            selected={endDate}
+            selected={endDate || new Date()} // 기본값으로 오늘 날짜
             onChange={onEndDateChange}
             dateFormat="yyyy-MM-dd"
             customInput={<CalendarInput />}
             className="custom-datepicker"
             popperPlacement="bottom"
           />
-          {/* <div style={{ marginTop: '20px', fontSize: '18px' }}>
-            {endDate ? `종료 날짜: ${endDate.toLocaleDateString()}` : '종료 날짜를 선택하세요'}
-          </div> */}
         </div>
       </div>
     </div>

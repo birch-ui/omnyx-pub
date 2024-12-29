@@ -219,8 +219,9 @@ textarea[disabled] {
     background-color: #fff;
     position: relative;
     text-align: center;
-    position: fixed;
+    /* position: fixed; */
     z-index: 10;
+    padding:0 1em;
 }
 
 .retail .appbar.main {
@@ -258,6 +259,8 @@ textarea[disabled] {
     height: 3.2rem;
     width: 3.2rem;
     text-indent: -100rem;
+    border-radius:0;
+    position: relative;
 }
 
 .appbar button.appbar-logo {
@@ -304,21 +307,30 @@ textarea[disabled] {
 }
 
 
-.badge {
+.badge-num {
     position: absolute;
-    top: 10%;
-    right: 10%;
+    top:0;
+    right:0;
     background-color: #fff;
-    color: var(--primary-color);
-    font-size: 14px;
-    font-weight: bold;
+    color: var(--primary-color) !important;
+    font-size: 0.9rem;
+    font-weight: 800;
     border-radius: 50%;
-    width: 24px;
-    height: 24px;
+    min-width: 1.6rem;
+    height: 1.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-indent: 0%;
+}
+.badge-dot {
+  position: absolute;
+  top:0.1rem;
+  right:0.1rem;
+  background-color: #fff;
+  border-radius: 50%;
+  min-width: 0.5rem;
+  height: 0.5rem;
 }
 
 /* 2. Form Styles */
@@ -524,6 +536,11 @@ input[type="checkbox"]:checked:before {
 
 
 /* 상품이미지 */
+.product-list {
+  display: flex;
+  gap: 1rem;
+}
+
 .thumbnail {
    width: 16rem;
 }
@@ -554,6 +571,9 @@ input[type="checkbox"]:checked:before {
 }
 .thumbnail img {
   width: 100%;
+  display: block;
+  max-width: 100%;
+  height: auto;
   /* border-radius: 1rem; */
 }
 .thumbnail .seller-logo {
@@ -720,16 +740,6 @@ hr.divider {
 
 
 
-
-
-
-
-
-
-
-
-
-
 /* 화면 중앙에 배치 */
 .calendar-center {
   display: flex;
@@ -737,6 +747,17 @@ hr.divider {
   align-items: center; /* 세로 중앙 */
   min-height: 100vh; /* 전체 화면 높이 */
   background-color: #f4f4f4; /* 배경색 (선택 사항) */
+  border:10px solid #000;
+}
+
+.calendar-range {
+  display: flex;
+  align-items: center;
+   gap:2rem;
+}
+
+.react-datepicker-popper {
+  /* transform: translate(0px, 2090.5px) !important; */
 }
 
 
@@ -748,9 +769,7 @@ hr.divider {
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  left:-50px;
-  border:1px solid #000
+  /* position: absolute; */
 }
 
 .react-datepicker__header {
@@ -783,4 +802,34 @@ hr.divider {
 .react-datepicker__current-month {
   font-size: 18px;
   font-weight: bold;
+}
+
+.calendar-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  font-size: 18px;
+  max-width: 400px;
+}
+
+.calendar-input input {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: #333;
+  outline: none;
+  flex: 1;
+}
+
+.calendar-input .icon {
+  margin-right: 10px;
+  font-size: 24px;
+  color: #888;
+}
+.custom-datepicker-popper {
+  margin-top: 8px; /* 팝업과 입력 간 간격 */
 }
