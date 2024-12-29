@@ -66,6 +66,11 @@ const AllComponent = () => {
 
 
 
+
+////////////////////////////////////////////////////////////////
+
+  
+
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [selectedOption, setSelectedOption] = useState('1주일');
@@ -245,8 +250,7 @@ const AllComponent = () => {
        <TabsComponent groups={{ group3: tabGroups.group3 }} styleType="round" />
     </div>
 
-
-
+    <hr className='divider'></hr>
 
 
 

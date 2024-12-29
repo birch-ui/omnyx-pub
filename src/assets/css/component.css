@@ -641,6 +641,7 @@ input[type="checkbox"]:checked:before {
   border-radius: 4px;
   height:3.6rem;
   font-size:1.2rem;
+  border: 1px solid var(--text-300-color);
 }
 
 .tabs-button .tab-button.active {
@@ -651,9 +652,12 @@ input[type="checkbox"]:checked:before {
 
 /* Round Style */
 .tabs-round .tab-button {
-  background-color: #f9f9f9;
-  border: 1px solid var(--primary-color);
-  border-radius: 20px;
+  background-color: #fff;
+  border: 1px solid var(--text-300-color);
+  border-radius: 1.5rem;
+  height:3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .tabs-round .tab-button.active {
