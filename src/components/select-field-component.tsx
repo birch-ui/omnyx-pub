@@ -10,8 +10,8 @@ interface SelectFieldProps {
 const SelectField: React.FC<SelectFieldProps> = ({ label, value, onChange, options }) => {
   return (
     <div>
-      <label className="form-title">{label}</label>
-      <div className="input-container">
+      <label className='form-title'>{label}</label>
+      <div className='input-container'>
         <select value={value} onChange={onChange}>
           {options.map((option) => (
             <option key={option.value} value={option.value}>

@@ -24,16 +24,15 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   isHotDeal,
 }) => {
   return (
-    <div className="thumbnail">
-      <div className="thumbnail-content">
-        <img src={tempImage} alt="Thumbnail" />
-        <div className="promotion-bedge">
-          {discountRate > 0 && <span className="sale">{discountRate}%</span>}
-          {isHotDeal && <span className="hotdeal">Hot Deal</span>}
+    <div className='thumbnail'>
+      <div className='thumbnail-content'>
+        <img src={tempImage} alt='Thumbnail' />
+        <div className='promotion-bedge'>
+          {discountRate > 0 && <span className='sale'>{discountRate}%</span>}
+          {isHotDeal && <span className='hotdeal'>Hot Deal</span>}
         </div>
-        <div className="seller-logo">
-         
-            <img src={sellerLogo} alt="SellerLogo" />
+        <div className='seller-logo'>
+          <img src={sellerLogo} alt='SellerLogo' />
         </div>
         <button
           className={`btn-icon ${isLiked ? 'btn-like-on' : 'btn-like'}`}
@@ -41,10 +40,10 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
           찜하기
         </button>
       </div>
-      <ul className="product-info">
-        <li className="product-name text-ellipsis">{productName}</li>
-        <li className="product-price">
-          <em className="unit">R$</em> {productPrice.toLocaleString('pt-BR')}
+      <ul className='product-info'>
+        <li className='product-name text-ellipsis'>{productName}</li>
+        <li className='product-price'>
+          <em className='unit'>R$</em> {productPrice.toLocaleString('pt-BR')}
         </li>
       </ul>
     </div>

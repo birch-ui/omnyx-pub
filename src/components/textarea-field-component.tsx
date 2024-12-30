@@ -18,7 +18,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
   const [focused, setFocused] = useState(false); // 포커스 상태 관리
 
   return (
-    <div className="form-group">
+    <div className='form-group'>
       <label className="form-title">{label}</label>
       <textarea
         className={`text-area ${focused ? 'focused' : ''}`} // 포커스 상태에 따라 클래스 추가

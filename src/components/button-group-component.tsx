@@ -13,10 +13,10 @@ interface ButtonGroupProps {
 
 const ButtonGroup: React.FC<ButtonGroupProps> = ({ buttons }) => {
   return (
-    <div className="btnlist">
+    <div className='btnlist'>
       {buttons.map((button, index) => (
         <div className={button.type || ''} key={index}>
-          <button type="submit" className={`${button.style} ${button.size}`}>
+          <button type='submit' className={`${button.style} ${button.size}`}>
             {button.label}
           </button>
         </div>

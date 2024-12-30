@@ -38,7 +38,7 @@ const InputField: React.FC<InputFieldProps> = ({
   };
 
   return (
-    <div className="form-group">
+    <div className='form-group'>
       {label && <label className='form-title' htmlFor={id}>{label}</label>}
       <div
         className={`input-container ${focused ? 'focused' : ''} ${type === 'email' && !isValid ? 'invalid' : ''
@@ -57,7 +57,7 @@ const InputField: React.FC<InputFieldProps> = ({
         />
         {inputValue && type !== 'cpf' && (
           <button
-            type="button"
+            type='button'
             className="btn-clear"
             aria-label="입력 내용 지우기"
             onClick={handleClear}
@@ -67,7 +67,7 @@ const InputField: React.FC<InputFieldProps> = ({
         )}
         {type === 'password' && (
           <button
-            type="button"
+            type='button'
             className={isPasswordVisible ? 'btn-eye-on' : 'btn-eye-off'}
             onClick={togglePasswordVisibility}
             aria-label="비밀번호 표시 토글"
@@ -77,7 +77,7 @@ const InputField: React.FC<InputFieldProps> = ({
         )}
         {type === 'cpf' && (
           <button
-            type="button"
+            type='button'
             className={`btn-small ${inputValue ? '' : 'btn-disable'}`}
             onClick={onButtonClick}
             disabled={!inputValue} // 입력 값이 없으면 버튼 비활성화

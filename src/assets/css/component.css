@@ -212,7 +212,10 @@ textarea[disabled] {
 }
 
 
-/* App Bar Styles */
+/* 앱바, 푸터메뉴
+
+
+ Styles */
 .appbar {
     height: 4.6rem;
     width: 100%;
@@ -305,8 +308,6 @@ textarea[disabled] {
     justify-items: center;
     height: 3rem;
 }
-
-
 .badge-num {
     position: absolute;
     top:0;
@@ -333,7 +334,11 @@ textarea[disabled] {
   height: 0.5rem;
 }
 
-/* 2. Form Styles */
+/*footer-ㅡmenu*/
+.footer-menu {
+  display: flex;
+}
+/* Form Styles */
 .form-group {
     margin: 1rem 0;
     position: relative;

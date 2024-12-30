@@ -34,24 +34,24 @@ const CheckBoxGroup: React.FC<CheckBoxGroupProps> = ({ options }) => {
   return (
     <div>
       {/* 전체선택 */}
-      <div className="check-group">
-        <div className="check-item">
+      <div className='check-group'>
+        <div className='check-item'>
           <input
-            type="checkbox"
-            id="selectAll"
+            type='checkbox'
+            id='selectAll'
             checked={isAllSelected}
             onChange={handleSelectAll}
           />
-          <label htmlFor="selectAll">전체선택</label>
+          <label htmlFor='selectAll'>전체선택</label>
         </div>
       </div>
 
       {/* 개별 체크박스 */}
       {options.map((option) => (
-        <div className="check-group" key={option.id}>
-          <div className="check-item">
+        <div className='check-group' key={option.id}>
+          <div className='check-item'>
             <input
-              type="checkbox"
+              type='checkbox'
               id={option.id}
               value={option.value}
               checked={selectedOptions.includes(option.value)}
