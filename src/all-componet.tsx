@@ -15,7 +15,8 @@ import RadioGroup from './components/radio-group-component';
 import CheckBoxGroup from './components/checkbox-group-component';
 import TabsComponent from './components/tabs-component';
 import Thumbnail from './components/thumbnail-component';
-
+import Footer from './components/footer-component';
+import Appbar from './components/appbar-component';
 
 const AllComponent = () => {
 
@@ -79,15 +80,6 @@ const AllComponent = () => {
     },
     {
       id: 2,
-      tempImage: tempImage02,
-      sellerLogo: sellerLogo,
-      productName: 'Calça jeans skinny',
-      productPrice: 45000,
-      discountRate: 20,
-      isHotDeal: false,
-    },
-    {
-      id: 3,
       tempImage: tempImage02,
       sellerLogo: sellerLogo,
       productName: 'Calça jeans skinny',
@@ -245,13 +237,99 @@ const AllComponent = () => {
   <hr className='divider' />
 
   <div className='component'>
-    <h3>Footer Menu 콤퍼넌트</h3>
-    <div className='footer-menu'>
-      <button>카테고리</button>
-      <button>홈</button>
-      <button>검색</button>
-      <button>마이페이지</button>
-    </div>
+      <h3>Appbar 콤퍼넌트</h3>
+
+
+
+
+
+
+
+{/* 소매 Appbar */}
+<Appbar
+        type="retail"
+        showMenuButton={true}
+        showLogo={true}
+        showSearchButton={true}
+        showAlarmButton={true}
+        showCartButton={true}
+        cartCount={99}
+        onMenuClick={() => console.log("전체메뉴 클릭됨")}
+        onSearchClick={() => console.log("검색 클릭됨")}
+        onAlarmClick={() => console.log("알람 클릭됨")}
+        onCartClick={() => console.log("장바구니 클릭됨")}
+      />
+
+      <div className="h10"></div>
+
+      {/* 도매 대시보드 Appbar */}
+      <Appbar
+        type="wholesale"
+        title="'판매자명' 대시보드"
+        showAlarmButton={true}
+        onAlarmClick={() => console.log("알람 클릭됨")}
+      />
+
+      <div className="h10"></div>
+
+      {/* 도매 가입 Appbar */}
+      <Appbar
+        type="wholesale"
+        title="판매자로 가입하기"
+        onBackClick={() => console.log("이전페이지 클릭됨")}
+      />
+
+
+
+
+
+
+
+
+      
+   <br></br><br></br><br></br><br></br>
+      <div className='h10'></div>
+
+      <div className='retail'>
+        <div className='appbar main'>
+          <div className='fl'>
+            <button className='appbar-menu'>전체메뉴</button>
+          </div>
+          <div className='center'><button className='appbar-logo'>OMNYX</button></div>
+          <div className='fr'>
+            <button className='appbar-search'>검색</button>
+            <button className='appbar-alarm'>알람 <span className='badge-dot'></span></button>
+            <button className='appbar-cart'>장바구니 <span className='badge-num'>99</span> </button>
+          </div>
+        </div>
+      </div>
+      <div className='h10'></div>
+      <div className='wholesale'>
+        <div className='appbar'>
+          <div className='fl'>
+            <h2 className='title'>'판매자명' 대시보드</h2>
+          </div>
+          <div className='fr'>
+            <button className='appbar-alarm'>알람 <span className='badge-dot'></span></button>
+          </div>
+        </div>
+      </div>
+      <div className='h10'></div>
+      <div className='wholesale'>
+        <div className='appbar'>
+          <div className='fl'>
+            <button className='appbar-pre'>이전페이지</button>
+          </div>
+          <div className='fl'>
+            <h2 className='title'>판매자로 가입하기</h2>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div className='component'>
+      <h3>Footer Menu 콤퍼넌트</h3>
+      <Footer />
   </div>
 
   <hr className='divider' />
