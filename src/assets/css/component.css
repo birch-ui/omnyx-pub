@@ -219,14 +219,16 @@ textarea[disabled] {
 .appbar {
     height: 4.6rem;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--secondary-color);
     position: relative;
     text-align: center;
     /* position: fixed; */
     z-index: 10;
     padding:0 1em;
 }
-
+.appbar.retail {
+  background-color: var(--primary-color);
+}
 .retail .appbar.main {
     background-color: var(--primary-color);
 }
@@ -335,9 +337,73 @@ textarea[disabled] {
 }
 
 /*footer-ㅡmenu*/
-.footer-menu {
+.footer {
   display: flex;
 }
+.footer div {
+  flex: 1;
+  justify-content: center;
+  align-items:center;
+}
+
+.footer button {
+  height:6.6rem;
+  border:0;
+  border-radius: 0;
+  margin-bottom:1rem;
+}
+.footer .footer-menu button, 
+.footer .footer-mystore button, 
+.footer .footer-mypage  button {
+  background: url('../images/footer-menu.svg') no-repeat center;
+  position: relative;
+  display: inline-flex;
+  align-items:end;
+  justify-content: center;
+  cursor: pointer;
+  color: #000;
+  font-size: 1.1rem;
+}
+
+.footer .footer-mystore button{
+  background: url('../images/footer-mystore.svg') no-repeat center;
+}
+
+.footer .footer-mypage button{
+  background: url('../images/footer-mypage.svg') no-repeat center;
+}
+
+.footer .footer-menu.active button{
+  background: url('../images/footer-menu-active.svg') no-repeat center;
+  color: var(--secondary-color);
+}
+
+.footer .footer-mystore.active button{
+  background: url('../images/footer-mystore-active.svg') no-repeat center;
+  color: var(--secondary-color);
+}
+
+.footer .footer-mypage.active button{
+  background: url('../images/footer-mypage-active.svg') no-repeat center;
+  color: var(--secondary-color);
+}
+
+
+.footer .footer-register {
+  display: inline-flex;
+}
+.footer .footer-register button {
+  background: url('../images/footer-register.svg') no-repeat center;
+  background-color: var(--secondary-color);
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 50%;
+  text-indent: -100rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 /* Form Styles */
 .form-group {
     margin: 1rem 0;
