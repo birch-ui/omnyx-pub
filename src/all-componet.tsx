@@ -1,5 +1,5 @@
 // src/AllComponent.tsx
-import React, { useState, forwardRef } from 'react';
+import React, { useState } from 'react';
 
 import tempImage01 from './assets/images/temp/temp01.png';
 import tempImage02 from './assets/images/temp/temp02.png';
@@ -138,6 +138,13 @@ const AllComponent = () => {
         placeholder='CNPJ 또는 CPF 입력하세요'
         label='법인번호(CNPJ) 또는 개인번호(CPF)'
         buttonLabel='중복확인'
+      />
+      <InputField
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="010-1234-5678"
+        label="핸드폰번호"
       />
     </form>
   </div>

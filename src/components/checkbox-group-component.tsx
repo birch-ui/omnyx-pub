@@ -8,9 +8,10 @@ interface CheckBoxOption {
 
 interface CheckBoxGroupProps {
   options: CheckBoxOption[];
+  showSelectAll?: boolean; // 전체선택 옵션
 }
 
-const CheckBoxGroup: React.FC<CheckBoxGroupProps> = ({ options }) => {
+const CheckBoxGroup: React.FC<CheckBoxGroupProps> = ({ options, showSelectAll = true }) => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
   const handleSelectAll = () => {
@@ -33,8 +34,8 @@ const CheckBoxGroup: React.FC<CheckBoxGroupProps> = ({ options }) => {
 
   return (
     <div>
-      {/* 전체선택 (선택된 항목이 2개 이상일 때만 표시) */}
-      {selectedOptions.length > 1 && (
+      {/* 전체선택 (옵션 활성화 시만 표시) */}
+      {showSelectAll && options.length > 1 && (
         <div className="check-group">
           <div className="check-item">
             <input

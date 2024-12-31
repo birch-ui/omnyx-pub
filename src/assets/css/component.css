@@ -199,6 +199,13 @@ textarea[disabled] {
   border-color: var(--disabled-border-color);
   color: var(--disabled-text-color);
 }
+.error-message {
+  font-size: 1.2rem;
+  display: block;
+  padding:0.5rem;
+  color:var(--error-color)
+
+}
 
 .text-area {
   padding:1rem;
@@ -222,7 +229,6 @@ textarea[disabled] {
     background-color: var(--secondary-color);
     position: relative;
     text-align: center;
-    /* position: fixed; */
     z-index: 10;
     padding:0 1em;
 }
@@ -552,6 +558,35 @@ input[type="checkbox"]:checked:before {
     mask-position: center;
     mask-repeat: no-repeat;
     border:1px solid #000;
+}
+.increment-decrement-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.increment-decrement-buttons button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+.increment-decrement-buttons button:hover {
+  background-color: #ddd;
+}
+
+/* Chrome, Safari, Edge, Opera에서 기본 스핀 버튼 숨기기 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox에서 스핀 버튼 숨기기 */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 
