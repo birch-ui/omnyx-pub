@@ -112,9 +112,9 @@ button {
 }
 
 .btn-large { height: 4.6rem; font-size: 1.6rem; }
-.btn-medium { height: 3.2rem; font-size: 1.6rem; }
+.btn-medium { height: 3.6rem; font-size: 1.5rem; }
 .btn-small { height: 2.6rem; font-size: 1.4rem; }
-.btn-xsmall { height: 2rem; font-size: 1.1rem; }
+.btn-xsmall { height: 2rem; font-size: 1.2rem; }
 
 
 /* 폼 스타일 */
@@ -217,6 +217,8 @@ textarea[disabled] {
   border-color: var(--primary-color)!important; /* 포커스 시 보더 색상 */
   outline: none; /* 기본 outline 제거 */
 }
+
+
 
 
 /* 앱바, 푸터메뉴
@@ -347,12 +349,17 @@ textarea[disabled] {
 
 /*footer-ㅡmenu*/
 .footer {
-  display: flex;
+display: flex;
+  border:1px solid #000;
+  position: relative;
+  width: 100%;
+
 }
 .footer div {
   flex: 1;
   justify-content: center;
-  align-items:center;
+  align-items:center; 
+  float: left;
 }
 
 .footer button {
@@ -418,12 +425,12 @@ textarea[disabled] {
     margin: 1rem 0;
     position: relative;
 }
-.input-container {
+/* .input-container {
     display: flex;
     border: 0.1rem solid  var(--text-300-color);
     border-radius: .6rem;
     padding: 1rem;
-}
+} */
 .input-container input {
   border:none;
   height:2.4rem;

@@ -34,12 +34,10 @@ const AllComponent = () => {
   };
 
   // 텍스트에어이어 콤퍼넌트
-  const [description, setDescription] = useState('');
-
-  const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setDescription(event.target.value);
-  };
-
+  // 텍스트에어이어 콤퍼넌트
+   const [text1, setText1] = useState('');
+   const [text2, setText2] = useState('');
+ 
 
   // 라디오 그룹 콤퍼넌트
   const [selectedLoginType, setSelectedLoginType] = useState('retail');
@@ -146,6 +144,13 @@ const AllComponent = () => {
         placeholder="010-1234-5678"
         label="핸드폰번호"
       />
+      <InputField
+                type="number"
+                id="userCount"
+                name="userCount"
+                placeholder="사용자 수를 입력하세요"
+                label="사용자수"
+              />
     </form>
   </div>
 
@@ -184,11 +189,16 @@ const AllComponent = () => {
     <h3>텍스트에어리어 콤퍼넌트</h3>
     <div>
       <TextAreaField
-        label='회사소개'
-        value={description}
-        onChange={handleDescriptionChange}
-        placeholder='회사소개를 입력하세요'
-        rows={5}
+        label="첫 번째 필드"
+        value={text1}
+        onChange={(e) => setText1(e.target.value)}
+        placeholder="첫 번째 텍스트 입력"
+      />
+               <TextAreaField
+        label="두 번째 필드"
+        value={text2}
+        onChange={(e) => setText2(e.target.value)}
+        placeholder="두 번째 텍스트 입력"
       />
     </div>
   </div>

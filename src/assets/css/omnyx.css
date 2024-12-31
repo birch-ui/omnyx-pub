@@ -88,28 +88,28 @@ fieldset {
 }
 
 
- /* 3. 공통 스타일 */
- html,
- body {
-   width: 100%;
-   font-size: 10px;
- }
- 
- body {
-   background: var(--background-color);
-   min-width: 32rem;
-   -webkit-text-size-adjust: none;
-   word-wrap: break-word;
-   word-break: break-all;
-   color: var(--text-200-color);
-   font-size: 1.6rem;
-   font-weight: 400;
- }
- 
- a {
-   color: #000;
-   text-decoration: none;
- }
+/* 3. 공통 스타일 */
+html,
+body {
+  width: 100%;
+  font-size: 10px;
+}
+
+body {
+  background: var(--background-color);
+  min-width: 32rem;
+  -webkit-text-size-adjust: none;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: var(--text-200-color);
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
 
 /* 4. 타이포그래피 */
 h1 {
@@ -149,12 +149,45 @@ em {
   overflow-y: scroll;
 }
 
-.sub-wrap {
-  margin: 0rem;
+.content-wrap {
+  margin: 5rem 0rem 5rem 0rem;
+  z-index: 2;
 }
 
-.content-wrap {
-  margin: 2rem;
+.align-center {
+  align-items: center;
+  justify-items: center; 
+}
+
+.section {
+  margin: 2rem 2rem 2rem 2rem;
+}
+
+.sign-up-set {
+  margin: 0 3rem;
+}
+
+.navigation-bar {
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  top:0
+}
+
+.container {
+  position: relative;
+}
+
+.tab-bar {
+  z-index: 30;
+  /* position: absolute; */
+  bottom:0;
+  position: fixed;
+  display: flex;
+}
+
+.btn-area-relative {
+  padding-top: 2rem;
 }
 
 /* 8. 유틸리티 클래스 */
@@ -207,6 +240,7 @@ td {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
 }
+
 .wholesale-checkbox input[type="checkbox"] {
   border: 1px solid #ccc;
 }
@@ -215,9 +249,11 @@ td {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
 }
+
 input[type="checkbox"] {
   border: 1px solid #ccc !important;
 }
+
 input[type="checkbox"]:checked {
   background-color: var(--primary-color);
   border-color: var(--primary-color) !important;
@@ -246,12 +282,7 @@ input[type="checkbox"]:checked {
 .sign-up-set {
   max-width: 60rem;
 }
-.contents {
-  padding: 5rem 2rem 5rem 2rem;
-  z-index: 2;
-  align-items: center;
-  justify-items: center;
-}
+
 
 /*로그인 & 회원가입*/
 .login-container input[type="text"] {
@@ -261,41 +292,54 @@ input[type="checkbox"]:checked {
 
 .login .title {
   text-align: center;
-  padding : 1rem 0 1rem 0
+  padding: 1rem 0 1rem 0
 }
+
 .register-prompt {
-  padding:2rem 0 2rem 0;
+  padding: 2rem 0 2rem 0;
   text-align: center;
   font-size: 1.6rem;
 }
+
 .register-prompt-info {
   font-size: 1.2rem;
-  padding : 0rem 0 1rem 0
+  padding: 0rem 0 1rem 0
 }
+
 .help-links {
   display: flex;
-  padding : 2rem 0 2rem 0;
+  padding: 2rem 0 2rem 0;
   border-bottom: 1px solid;
-  border-color: var(--text-100-color); 
+  border-color: var(--text-100-color);
 }
+
 .help-links button {
-  border:0;
+  border: 0;
   text-decoration: underline;
   margin: 0 1rem;
 }
-.btn-saech-id {text-align: right;}
-.btn-saech-pw {text-align: left;}
+
+.btn-saech-id {
+  text-align: right;
+}
+
+.btn-saech-pw {
+  text-align: left;
+}
+
 .login input[type="checkbox"] {
   border-radius: 50%;
 }
+
 .login .check-group {
-  padding:0.5rem 0
+  padding: 0.5rem 0
 }
+
 .stay-login label {
   padding: 0 0 0 0.6rem;
 }
+
 .agreement {
-   padding:1rem 0;
+  padding: 1rem 0;
 }
-/**/
 
