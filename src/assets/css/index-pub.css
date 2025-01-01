@@ -1,7 +1,6 @@
 /* 컴포넌트 인덱스용 스타일-지울것 */
 .view {
    /* overflow-y: scroll; */
-   border:1px solid #000;
 }
 
 .view-btn {
