@@ -3,6 +3,7 @@ import Login from './login';
 import ProductRegistration from './product-registration'; 
 import FindPassword from './find-password';
 import SignUp from './sign-up';
+import SubscriptionRequest from './subscription-request';
 
 import AllComponent from './All-componet';
 import CalendarComponent from './components/calendar-component';
@@ -20,6 +21,7 @@ function App(): React.ReactElement {
   const componentMap: { [key: string]: React.ReactNode } = {
     login: <Login />,
     productRegistration: <ProductRegistration />, 
+    subscriptionRequest: <SubscriptionRequest/>, 
     findPassword: <FindPassword />,
     signUp: <SignUp />,
     signUpComplete: <SignUpComplete />,
@@ -37,7 +39,7 @@ function App(): React.ReactElement {
 
   const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(componentMap.allComponent);
   // const [selectedcalendar, setSelectedcalendar] = useState<React.ReactNode>(componentMap.calendarComponent);
-  const [viewStyle, setViewStyle] = useState({ width: '375px', height: 'auto' });
+  const [viewStyle, setViewStyle] = useState({ width: '375px', height: '100vh' });
 
   const handleLinkClick = (componentKey: keyof typeof componentMap) => {
     const selected = componentMap[componentKey];
@@ -175,7 +177,13 @@ function App(): React.ReactElement {
               <td>구독재신청</td>
               <td></td>
               <td className='type'><span className='page'>page</span></td>
-              <td className='id'></td>
+              <td
+                className="id"
+                onClick={() => handleLinkClick('subscriptionRequest')}
+                style={{ cursor: 'pointer' }}
+              >
+              subscription-request
+              </td>
               <td></td>
               <td className='date'></td>
               <td className='etc'></td>
@@ -577,17 +585,12 @@ function App(): React.ReactElement {
             </tr>
             <tr>
               <td>
+              <div className="view-btn">
+          <button onClick={() => toggleViewStyle('mobile')}>mobile (375px)</button>
+          <button onClick={() => toggleViewStyle('tablet')}>tablet (820px)</button>
+        </div>
               </td>
             </tr>
-            {/* <tr>
-              <td
-                className="id"
-                onClick={() => handleLinkClick('calendarComponent')}
-                style={{ cursor: 'pointer' }}
-              >
-                calendar-component
-              </td>
-            </tr> */}
           </tbody>
         </table>
       </div>
@@ -597,8 +600,8 @@ function App(): React.ReactElement {
       {/* 모바일/태블릿 섹션 */}
       <div style={{ ...viewStyle }} className="view">
         <div className="view-btn">
-          <button onClick={() => toggleViewStyle('mobile')}>mobile (375px)</button>
-          <button onClick={() => toggleViewStyle('tablet')}>tablet (820px)</button>
+          {/* <button onClick={() => toggleViewStyle('mobile')}>mobile (375px)</button>
+          <button onClick={() => toggleViewStyle('tablet')}>tablet (820px)</button> */}
         </div>
         {selectedComponent}
       </div>

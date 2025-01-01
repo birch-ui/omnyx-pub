@@ -16,7 +16,7 @@
   --placeholder-color: #b5b5b5;
   --disabled-bg-color: #ECECED;
   --disabled-border-color: #c0c0c0;
-  --disabled-text-color: #AAABAD;
+  --disabled-text-color: #616161;
   --error-color: #D96068;
   --border-radius: 0.4rem;
 }
@@ -150,7 +150,7 @@ em {
 }
 
 .content-wrap {
-  margin: 5rem 0rem 5rem 0rem;
+  margin: 6rem 0rem 5rem 0rem;
   z-index: 2;
 }
 
@@ -164,27 +164,16 @@ em {
 }
 
 .sign-up-set {
-  margin: 0 3rem;
+  padding: 0 3rem;
+  width: 100%;
 }
 
-.navigation-bar {
-  position: fixed;
-  width: 100%;
-  z-index: 20;
-  top:0
-}
+
 
 .container {
   position: relative;
 }
 
-.tab-bar {
-  z-index: 30;
-  /* position: absolute; */
-  bottom:0;
-  position: fixed;
-  display: flex;
-}
 
 .btn-area-relative {
   padding-top: 2rem;

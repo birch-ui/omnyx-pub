@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 
 interface InputFieldProps {
-  type: 'text' | 'password' | 'email' | 'cpf' | 'tel' | 'number'; // 'number' 타입 추가
+  type: 'text' | 'password' | 'email' | 'cpf' | 'tel' | 'number';
   id: string;
   name: string;
   placeholder: string;
   label?: string;
-  buttonLabel?: string; // 버튼 레이블
-  onButtonClick?: () => void; // 버튼 클릭 핸들러
-  showIncrementDecrement?: boolean; // 증가/감소 버튼 표시 여부
-  step?: number; // 증가/감소 단위 (기본값: 1)
-  min?: number; // 최소값
-  max?: number; // 최대값
+  buttonLabel?: string;
+  onButtonClick?: () => void;
+  showIncrementDecrement?: boolean;
+  step?: number;
+  min?: number;
+  max?: number;
+  disabled?: boolean; // disabled 속성 추가
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -26,22 +27,27 @@ const InputField: React.FC<InputFieldProps> = ({
   step = 1,
   min,
   max,
+  disabled = false, // 기본값 추가
 }) => {
   const [focused, setFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [isValid, setIsValid] = useState(true);
 
-  // 핸들러 함수
-  const handleFocus = () => setFocused(true);
+  const handleFocus = () => !disabled && setFocused(true);
   const handleBlur = () => {
-    setFocused(false);
-    validateInput(inputValue);
+    if (!disabled) {
+      setFocused(false);
+      validateInput(inputValue);
+    }
   };
-  const handleClear = () => setInputValue('');
-  const togglePasswordVisibility = () => setPasswordVisible((prev) => !prev);
+
+  const handleClear = () => !disabled && setInputValue('');
+  const togglePasswordVisibility = () =>
+    !disabled && setPasswordVisible((prev) => !prev);
 
   const handleIncrement = () => {
+    if (disabled) return;
     const value = parseFloat(inputValue) || 0;
     const newValue = value + step;
     if (max !== undefined && newValue > max) return;
@@ -49,6 +55,7 @@ const InputField: React.FC<InputFieldProps> = ({
   };
 
   const handleDecrement = () => {
+    if (disabled) return;
     const value = parseFloat(inputValue) || 0;
     const newValue = value - step;
     if (min !== undefined && newValue < min) return;
@@ -56,17 +63,18 @@ const InputField: React.FC<InputFieldProps> = ({
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (disabled) return;
     const value = e.target.value;
     if (type === 'number') {
-      const numericValue = value.replace(/[^0-9.]/g, ''); // 숫자만 허용
+      const numericValue = value.replace(/[^0-9.]/g, '');
       setInputValue(numericValue);
     } else {
       setInputValue(value);
     }
   };
 
-  // 유효성 검사 함수
   const validateInput = (value: string) => {
+    if (disabled) return;
     let valid = true;
 
     if (type === 'email') {
@@ -75,7 +83,7 @@ const InputField: React.FC<InputFieldProps> = ({
     }
 
     if (type === 'tel') {
-      const telRegex = /^010-\d{3,4}-\d{4}$/; // 한국 전화번호 형식
+      const telRegex = /^010-\d{3,4}-\d{4}$/;
       valid = telRegex.test(value);
     }
 
@@ -88,14 +96,13 @@ const InputField: React.FC<InputFieldProps> = ({
     }
 
     if (type === 'cpf') {
-      const cpfRegex = /^\d{11}$/; // 단순한 CPF 형식 (11자리 숫자)
+      const cpfRegex = /^\d{11}$/;
       valid = cpfRegex.test(value);
     }
 
     setIsValid(valid);
   };
 
-  // 에러 메시지 매핑
   const errorMessages: { [key: string]: string } = {
     email: '* 유효한 이메일 주소를 입력하세요',
     tel: '* 유효한 전화번호를 입력하세요 (010-XXXX-XXXX)',
@@ -106,16 +113,13 @@ const InputField: React.FC<InputFieldProps> = ({
   };
 
   return (
-    <div className="form-group">
-      {/* 레이블 */}
+    <div className={`form-group ${disabled ? 'disable' : ''}`}>
       {label && <label className="form-title" htmlFor={id}>{label}</label>}
 
       <div
-        className={`input-container ${focused ? 'focused' : ''} ${
-          !isValid ? 'invalid' : ''
+        className={`input-container ${focused ? 'focused' : ''} 
         }`}
       >
-        {/* 입력 필드 */}
         <input
           type={isPasswordVisible && type === 'password' ? 'text' : type}
           id={id}
@@ -125,47 +129,46 @@ const InputField: React.FC<InputFieldProps> = ({
           onChange={handleInputChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          disabled={disabled} // disabled 적용
           style={{ flex: 1 }}
         />
 
-        {/* 증가/감소 버튼 */}
         {showIncrementDecrement && type === 'number' && (
           <div className="increment-decrement-buttons">
-            <button type="button" onClick={handleIncrement}>
+            <button type="button" onClick={handleIncrement} disabled={disabled}>
               ▲
             </button>
-            <button type="button" onClick={handleDecrement}>
+            <button type="button" onClick={handleDecrement} disabled={disabled}>
               ▼
             </button>
           </div>
         )}
 
-        {/* 지우기 버튼 */}
         {inputValue && type !== 'cpf' && (
           <button
             type="button"
             className="btn-clear"
             aria-label="입력 내용 지우기"
             onClick={handleClear}
+            disabled={disabled} // disabled 적용
           >
             지우기
           </button>
         )}
 
-        {/* 비밀번호 보기 토글 버튼 */}
         {type === 'password' && (
           <button
             type="button"
             className={isPasswordVisible ? 'btn-eye-on' : 'btn-eye-off'}
             onClick={togglePasswordVisibility}
             aria-label="비밀번호 표시 토글"
+            disabled={disabled} // disabled 적용
           >
             {isPasswordVisible ? '숨기기' : '보기'}
           </button>
         )}
       </div>
 
-      {/* 에러 메시지 */}
       {!isValid && type && errorMessages[type] && (
         <span className="error-message">{errorMessages[type]}</span>
       )}

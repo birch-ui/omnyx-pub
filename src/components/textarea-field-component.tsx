@@ -6,6 +6,7 @@ interface TextAreaFieldProps {
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder: string;
   rows?: number;
+  disabled?: boolean; // disabled 속성 추가
 }
 
 const TextAreaField: React.FC<TextAreaFieldProps> = ({
@@ -14,20 +15,24 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
   onChange,
   placeholder,
   rows = 4,
+  disabled = false, // 기본값 추가
 }) => {
   const [focused, setFocused] = useState(false); // 포커스 상태 관리
 
   return (
-    <div className='form-group'>
+    <div className={`form-group ${disabled ? 'disabled' : ''}`}>
       <label className="form-title">{label}</label>
       <textarea
-        className={`text-area ${focused ? 'focused' : ''}`} // 포커스 상태에 따라 클래스 추가
+        className={`text-area ${focused ? 'focused' : ''} ${
+          disabled ? 'disabled' : ''
+        }`} // disabled 클래스 추가
         value={value}
         onChange={onChange}
-        onFocus={() => setFocused(true)} // 포커스 상태로 전환
-        onBlur={() => setFocused(false)} // 포커스 해제 상태로 전환
+        onFocus={() => !disabled && setFocused(true)} // disabled일 경우 포커스 무시
+        onBlur={() => !disabled && setFocused(false)} // disabled일 경우 블러 무시
         placeholder={placeholder}
         rows={rows}
+        disabled={disabled} // disabled 속성 적용
       ></textarea>
     </div>
   );

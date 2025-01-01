@@ -16,13 +16,12 @@ const SignUp = () => {
   };
   // 체크박스 콤퍼넌트
   const options = [
-    { id: '1', label: '약관에 동의 합니다. [더보기]', value: 'option1' },
-    { id: '2', label: '구독안내 [더보기]', value: 'option2' },
+    { id: '1', label: '약관 동의 [더보기]', value: 'option1' },
+    { id: '2', label: '구독 안내 [더보기]', value: 'option2' },
   ];
 
   return (
       <div className='container wholesale'>
-        {/* 상단 Appbar */}
         <div className='navigation-bar'>
           <Appbar
             type="wholesale"
@@ -64,7 +63,7 @@ const SignUp = () => {
                 id="email"
                 name="email"
                 placeholder="이메일 주소를 입력하세요"
-                label="이메일"
+                label="이메일 주소"
               />
               <InputField
                 type="password"
