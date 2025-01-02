@@ -6,6 +6,8 @@ import InputField from './components/input-field-component';
 import ButtonGroup from './components/button-group-component';
 import TextAreaField from './components/textarea-field-component';
 import CheckBoxGroup from './components/checkbox-group-component';
+import ImageUpload from "./components/image-upload-component";
+
 
 const ProductRegistration = () => {
 
@@ -20,6 +22,15 @@ const ProductRegistration = () => {
     { id: '3', label: '추천상품으로 노출하기', value: 'option3' },
     { id: '4', label: '인기상품으로 노출하기', value: 'option4' },
   ];
+
+  //이미지업로드 콤퍼넌트
+  const [imageFile, setImageFile] = useState<File | null>(null);
+
+  const handleImageChange = (file: File | null) => {
+    console.log("선택된 이미지 파일:", file);
+    setImageFile(file);
+  };
+
 
   return (
     <div className='container'>
@@ -40,7 +51,7 @@ const ProductRegistration = () => {
             ]}
           />
           <div>
-            선택한 카테고리 : 여자 상의 블라우스
+          선택한 카테고리 <span>{">"}</span> 여자 상의 블라우스
           </div>
         </div>
 
@@ -105,7 +116,9 @@ const ProductRegistration = () => {
           <CheckBoxGroup options={options} showSelectAll={false} />
         </div>
         <hr className='divider' />
-        <div className='section'></div>
+        <div className='section'>
+        <ImageUpload />
+        </div>
         <hr className='divider' />
         <div className='section'></div>
       </div>
