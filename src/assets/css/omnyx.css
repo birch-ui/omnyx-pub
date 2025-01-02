@@ -101,7 +101,7 @@ body {
   -webkit-text-size-adjust: none;
   word-wrap: break-word;
   word-break: break-all;
-  color: var(--text-200-color);
+  color: var(--text-600-color);
   font-size: 1.6rem;
   font-weight: 400;
 }
