@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
-const MAX_IMAGES = 10; // 업로드 가능한 최대 이미지 개수
+const MAX_IMAGES = 10; // 최대 업로드 가능한 이미지 개수
 
-const ImageUpload: React.FC = () => {
-  const [images, setImages] = useState<File[]>([]);
-  const [previews, setPreviews] = useState<string[]>([]);
+const ImageUploadWithPreview: React.FC = () => {
+  const [images, setImages] = useState<File[]>([]); // 업로드한 이미지 파일 리스트
+  const [previews, setPreviews] = useState<string[]>([]); // 미리보기 URL 리스트
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) return;
+
     const files = Array.from(event.target.files);
 
-    if (files.length + images.length > MAX_IMAGES) {
+    if (images.length + files.length > MAX_IMAGES) {
       alert(`이미지는 최대 ${MAX_IMAGES}개까지 업로드 가능합니다.`);
       return;
     }
@@ -62,4 +63,4 @@ const ImageUpload: React.FC = () => {
   );
 };
 
-export default ImageUpload;
+export default ImageUploadWithPreview;

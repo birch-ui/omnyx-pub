@@ -39,7 +39,7 @@ function App(): React.ReactElement {
 
   const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(componentMap.allComponent);
   // const [selectedcalendar, setSelectedcalendar] = useState<React.ReactNode>(componentMap.calendarComponent);
-  const [viewStyle, setViewStyle] = useState({ width: '375px', height: '100vh' });
+  const [viewStyle, setViewStyle] = useState({ width: '375px', height: '' });
 
   const handleLinkClick = (componentKey: keyof typeof componentMap) => {
     const selected = componentMap[componentKey];
